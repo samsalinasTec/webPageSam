@@ -1,0 +1,335 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-trs-border {
+    border: 1.2px solid transparent; /* Borde siempre presente */
+  }
+}
+
+@layer utilities {
+  @keyframes glowing-border {
+    0%, 100% {
+      border-color: transparent;
+    }
+    50% {
+      border-color: currentColor;
+    }
+  }
+
+  .btn-hover-effect:hover {
+    position: relative;
+    animation: glowing-border 1.2s infinite linear; /* Aplicar la animación */
+    border-color:linear-gradient(to right, #3b82f6, #10b981); /* Usar el color actual para el borde */
+    @apply rounded-lg;
+  }
+
+}
+
+
+@layer utilities {
+  @keyframes border-glowing {
+    0%, 100% {
+      box-shadow: 0 0 0 0px rgba(0, 0, 0, 0);
+    }
+    25%, 75% {
+      box-shadow: 0 0 0 1.2px blue, 0 0 0 1.8px purple;
+    }
+    50% {
+      box-shadow: 0 0 0 1.2px blue, 0 0 0 3px purple;
+    }
+  }
+
+  .border-btn-hover:hover {
+    position: relative;
+    border-radius: 0.5rem; /* Mantener el borde redondeado */
+    animation: border-glowing 2s infinite linear;
+  }
+}
+
+@layer utilities {
+  .gradient-bg-for-border {
+ @apply  bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 
+  }
+}
+
+
+@layer utilities{
+@keyframes bounceNew {
+  0%, 100% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+  
+  50% {
+    transform: translateY(-10%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+}
+
+.bounce-smooth{
+  animation:bounceNew 1s infinite;
+}
+}
+
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Definimos la animación fadeInRight */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Inicialmente las tarjetas están ocultas */
+
+.autoRotate{
+
+  animation: AutoRotateAnimation;
+  animation-timeline: view() 
+
+}
+
+@keyframes AutoRotateAnimation {
+
+  from{
+    transform: rotate(0deg);
+  }
+
+  to{
+    transform: rotate(360deg);
+  }
+  
+}
+
+.autoShow{
+  animation: autoShowAnimation both;
+  animation-timeline: view(40% 30%);
+}
+
+.autoShowFaster{
+  animation: autoShowAnimation both;
+  animation-timeline: view(90% 10%);
+}
+
+
+.autoShowMedium{
+  animation: autoShowAnimation both;
+  animation-timeline: view(70% 5%);
+}
+
+@keyframes autoShowAnimation{
+  from{
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.bg-TranslucidFilter{
+    background: rgba(255, 255, 255, 0.1); /* Color de fondo blanco con opacidad */
+    backdrop-filter: blur(5px); /* Desenfoque del fondo detrás del elemento */
+    -webkit-backdrop-filter: blur(10px); /* Prefijo para soporte de Safari */
+  
+}
+
+
+
+
+.autoShowFasterLeft{
+  animation: autoShowAnimationFasterLeft both;
+  animation-timeline: view(90% 10%);
+}
+
+@keyframes autoShowAnimationFasterLeft{
+  from{
+    opacity: 0;
+    transform: translateX(-200px) ;
+  }
+
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.autoShowFasterRight{
+  animation: autoShowAnimationFasterRight both;
+  animation-timeline: view(90% 10%);
+}
+
+@keyframes autoShowAnimationFasterRight{
+  from{
+    opacity: 0;
+    transform: translateX(200px) ;
+  }
+
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.list{
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.list .item{
+  transition: 0.5s;
+  filter: brightness(0.1);
+}
+
+.list .item:hover {
+  filter: brightness(1);
+  transform: translateZ(200px);
+}
+
+@media (max-width: 768px) {
+  .list .item:hover {
+    transform: translateZ(60px); /* Ajusta el valor para pantallas pequeñas */
+  }
+}
+
+.list .item:hover + *{
+  filter: brightness(0.6);
+  transform: translateZ(150px) rotateY(20deg);
+}
+
+@media (max-width: 768px) {
+  .list .item:hover + *{
+    filter: brightness(0.3);
+    transform: translateZ(50px) rotateX(-30deg);
+  }
+}
+
+.list .item:hover + * + *{
+  filter: brightness(0.2);
+  transform: translateZ(10px);
+}
+
+.list .item:has(+*:hover){
+  filter: brightness(0.6);
+  transform: translateZ(150px) rotateY(-20deg);
+}
+
+@media (max-width: 768px) {
+  .list .item:has(+*:hover){
+    filter: brightness(0.2);
+    transform: translateZ(50px) rotateX(20deg);
+  }
+}
+
+.list .item:has(+*+*:hover){
+  filter: brightness(0.2);
+  transform: translateZ(10px);
+}
+
+
+.borderBottom-gradiente {
+  border-bottom: 4px solid transparent; /* Establece el grosor del borde */
+  border-image: linear-gradient(to right, #ff7e5f, #cefe7b); /* Define el gradiente de izquierda a derecha */
+  border-image-slice: 1; /* Estira la imagen del borde para que cubra el borde definido */
+}
+
+
+.border-gradient {
+  border: 3px solid transparent;
+  border-image: linear-gradient(to right, #ff7e5f, #cefe7b) 1;
+}
+
+.banner{
+position: relative;
+width: 100%; /* Asegura que el contenedor tenga un ancho definido */
+height: 100vh; /* Altura fija o suficiente para contener las tarjetas */
+}
+
+.banner .slider{
+position: absolute;
+width: 550px;
+height: 300px;
+top: 30%;
+left: 30%; 
+transform-style: preserve-3d;
+transform: perspective(1000px);
+animation:   autoRun 20s linear infinite;
+}
+
+
+@keyframes autoRun{
+  from{
+    transform:  rotateY(0deg);
+  }
+  to{
+    transform:  rotateY(360deg);
+  }
+}
+
+.banner .slider:hover {
+  animation-play-state: paused; /* Pausa la animación cuando hay hover */
+}
+
+.banner .slider .card{
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) 
+  translateZ(550px);
+
+}
+
+
+@media (max-width: 768px) {
+  .banner .slider{
+    position: absolute;
+    width: 350px;
+    height: 400px;
+    top: 30%;
+    left: 4%; 
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation:   autoRun 20s linear infinite;
+    }
+}
+
+@media (max-width: 768px) {
+  @keyframes autoRun{
+    from{
+      transform:  rotateX(0deg);
+    }
+    to{
+      transform:  rotateX(360deg);
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .banner .slider .card{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: rotateX(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) 
+    translateZ(250px);
+  
+  }
+}
