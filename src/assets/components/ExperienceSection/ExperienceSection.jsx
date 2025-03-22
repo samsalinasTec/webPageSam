@@ -12,7 +12,7 @@ import powerAppsIcon from "./AdobeIlustrator.png"
 
 const ExperienceSection = () => {
   return (
-    <div id='ExperienceSection' className=" banner mt-2 mb-2 mx-2 py-0 px-0 md:p-0">
+    <div id='ExperienceSection' className=" banner mt-2 mb-2 mx-2 py-0 px-0 md:p-0 ">
       <p className="text-sm text-gray-500 text-center mb-1 autoShow">Explore</p>
       <h2 className="text-4xl text-Gray-letrasTitulo font-bold text-center mb-10 autoShow">My Experience</h2>
       <div className="slider"  style={{ "--quantity": 4 }}>

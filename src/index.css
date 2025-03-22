@@ -277,7 +277,29 @@ animation:   autoRun 20s linear infinite;
 }
 
 
+.banner .sliderCertificate{
+  position: absolute;
+  width: 350px;
+  height: 400px;
+  top: 30%;
+  left: 4%; 
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation:   autoRunCertificate 20s linear infinite;
+  }
+
+
 @keyframes autoRun{
+  from{
+    transform:  rotateY(0deg);
+  }
+  to{
+    transform:  rotateY(360deg);
+  }
+}
+
+
+@keyframes autoRunCertificate{
   from{
     transform:  rotateY(0deg);
   }
@@ -290,6 +312,7 @@ animation:   autoRun 20s linear infinite;
   animation-play-state: paused; /* Pausa la animación cuando hay hover */
 }
 
+
 .banner .slider .card{
   position: absolute;
   inset: 0 0 0 0;
@@ -299,7 +322,26 @@ animation:   autoRun 20s linear infinite;
 }
 
 
+.banner .slider .cardCertificate{
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) 
+  translateZ(550px);
+
+}
+
+
+
+
 @media (max-width: 768px) {
+
+
+  .banner{
+    position: relative;
+    width: 98%; /* Asegura que el contenedor tenga un ancho definido */
+    height: 100vh; /* Altura fija o suficiente para contener las tarjetas */
+    }
+
   .banner .slider{
     position: absolute;
     width: 350px;
@@ -310,9 +352,19 @@ animation:   autoRun 20s linear infinite;
     transform: perspective(1000px);
     animation:   autoRun 20s linear infinite;
     }
-}
 
-@media (max-width: 768px) {
+    .banner .sliderCertificate{
+      position: absolute;
+      width: 350px;
+      height: 400px;
+      top: 30%;
+      left: 4%; 
+      transform-style: preserve-3d;
+      transform: perspective(1000px);
+      animation:   autoRunCertificate 15s linear infinite;
+      }
+
+
   @keyframes autoRun{
     from{
       transform:  rotateX(0deg);
@@ -321,15 +373,107 @@ animation:   autoRun 20s linear infinite;
       transform:  rotateX(360deg);
     }
   }
-}
+
+  @keyframes autoRunCertificate {
+    from {
+      transform: rotateY(0deg);
 
 
-@media (max-width: 768px) {
+    }
+    to {
+      transform: rotateY(360deg);
+
+    }
+  }
+
+
   .banner .slider .card{
     position: absolute;
     inset: 0 0 0 0;
     transform: rotateX(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) 
     translateZ(250px);
-  
+}
+
+.banner .sliderCertificate .cardCertificate{
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+  translateZ(250px);
+  /* offset de tiempo para cada tarjeta, así cada una arranca en un punto diferente de la onda */
+}
+
+/* Keyframes que aproximan una onda (tipo coseno) */
+@keyframes fadeBehind {
+  /* Ángulo     Cos(ángulo)  Normalizado a [0..1] para opacidad (aprox) */
+  /* 0%   →  0°  → cos(0°)=1   → opacidad alta */
+  0%   { opacity: 1;   }
+
+  /* 25%  → 90° → cos(90°)=0  → opacidad media/baja, elegimos 0.0 o 0.1, etc. */
+  25%  { opacity: 0.01; }
+
+  /* 50%  →180° → cos(180°)=-1 → opacidad = 0 (oculto) */
+  50%  { opacity: 0;   }
+
+  /* 75%  →270° → cos(270°)=0 → otra vez ~0.1 */
+  75%  { opacity: 0.01; }
+
+  /* 100% →360° → cos(360°)=1 → opacidad = 1 */
+  100% { opacity: 1;   }
+}
+
+.sliderReel{
+  width: 99%;
+  border: 1px solid #ff7e5f;
+  height: var(--height);
+}
+
+.sliderReel .listReel{
+  display: flex;
+  width: 100%;
+  min-width: calc((var(--width) + var(--gap)) * var(--quantity));
+  position: relative;
+
+}
+
+.sliderReel .listReelLeft .item{
+  height: var(--height);
+  width: var(--width);
+  position: absolute;
+  left: 100%;
+  animation: reelRunLeft 10s linear infinite;
+  animation-delay: calc((10s / var(--quantity)) * (var(--itemNumber) - 1));
+}
+
+
+.sliderReel .listReelRight .item{
+  height: var(--height);
+  width: var(--width);
+  position: absolute;
+  left: 100%;
+  animation: reelRunRight 10s linear infinite;
+  animation-delay: calc((10s / var(--quantity)) * (var(--itemNumber) - 1));
+}
+
+.sliderReel .listReel .item img{
+  width: 100%;
+}
+
+@keyframes reelRunLeft{
+  0%{
+    left: 100%;
   }
+  100%{
+    left:calc((var(--width) + 10px)* -1);
+  }
+}
+
+@keyframes reelRunRight{
+  0%{
+    left: 100%;
+  }
+  100%{
+    left:calc((var(--width) + 10px)* -1);
+  }
+}
+
 }
