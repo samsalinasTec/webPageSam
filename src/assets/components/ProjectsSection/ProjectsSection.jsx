@@ -1,6 +1,8 @@
 import React from 'react';
-import Project1Image from "./DashboardNacionalGradientColors.png"
-import Project2Image from "./DashboardModelsGradientColors.png"
+import Project2Image from "./DashboardModelsGradientColors.png" ;
+import VideoDashboardNacion from "./GrabacionDashboardNacional.mp4";
+import VideoDashboardModel from "./GrabacionDashboardModels.mp4";
+
 
 const ProjectsSection=() =>{
   return (
@@ -11,8 +13,18 @@ const ProjectsSection=() =>{
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-5 list">
           {/* Tarjeta de Proyecto One */}
           <div className="bg-TranslucidFilter rounded-lg p-0.5 w-full h-full item">
-            <img src={Project1Image} alt="Project One" className="rounded-lg mb-4 w-auto h-auto"/>
-            <h3 className="text-xl font-semibold text-center mb-2 text-Gray-letrasTitulo">Project One</h3>
+          <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="rounded-lg mb-4 w-full h-auto"
+            >
+              <source src={VideoDashboardNacion} type="video/mp4" />
+              Tu navegador no soporta la etiqueta de video.
+            </video>
+            
+            <h3 className="text-xl font-semibold text-center mb-2 text-Gray-letrasTitulo">Dashboard income</h3>
             <p className="text-center mb-4 text-Gray-letrasTexto">Better Communication with Each Other</p>
             <div className="flex justify-center space-x-2">
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -26,7 +38,16 @@ const ProjectsSection=() =>{
           </div>
           {/* Tarjeta de Proyecto Two */}
           <div className="bg-TranslucidFilter rounded-lg p-0.5 w-full h-full item">
-            <img src={Project2Image} alt="Project One" className="rounded-lg mb-4 w-full h-auto"/>
+          <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="rounded-lg mb-4 w-full h-auto"
+            >
+              <source src={VideoDashboardModel} type="video/mp4" />
+              Tu navegador no soporta la etiqueta de video.
+            </video>
             <h3 className="text-xl font-semibold text-center mb-2 text-Gray-letrasTitulo">Project One</h3>
             <p className="text-center mb-4 text-Gray-letrasTexto">Better Communication with Each Other</p>
             <div className="flex justify-center space-x-2">
@@ -40,8 +61,16 @@ const ProjectsSection=() =>{
           </div>
           {/* Tarjeta de Proyecto */}
           <div className="bg-TranslucidFilter rounded-lg p-0.5 w-full h-full item">
-            <img src={Project1Image} alt="Project One" className="rounded-lg mb-4 w-full h-auto"/>
-            <h3 className="text-xl font-semibold text-center mb-2 text-Gray-letrasTitulo">Project One</h3>
+          <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="rounded-lg mb-4 w-full h-auto"
+            >
+              <source src={VideoDashboardNacion} type="video/mp4" />
+              Tu navegador no soporta la etiqueta de video.
+            </video>            <h3 className="text-xl font-semibold text-center mb-2 text-Gray-letrasTitulo">Project One</h3>
             <p className="text-center mb-4 text-Gray-letrasTexto">Better Communication with Each Other</p>
             <div className="flex justify-center space-x-2">
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -53,34 +82,9 @@ const ProjectsSection=() =>{
             </div>
           </div>
           {/* Tarjeta de Proyecto */}
-          <div className="bg-TranslucidFilter rounded-lg p-0.5 w-full h-full item">
-            <img src={Project1Image} alt="Project One" className="rounded-lg mb-4 w-full h-auto"/>
-            <h3 className="text-xl font-semibold text-center mb-2 text-Gray-letrasTitulo">Project One</h3>
-            <p className="text-center mb-4 text-Gray-letrasTexto">Better Communication with Each Other</p>
-            <div className="flex justify-center space-x-2">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                GitHub
-              </button>
-              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                Live Demo
-              </button>
-            </div>
-          </div>
+
           {/* Tarjeta de Proyecto Three */}
-          <div className="bg-TranslucidFilter rounded-lg p-0.5  w-full h-full item">
-            
-            <img src={Project1Image} alt="Project One" className="rounded-lg mb-4 w-full h-auto"/>
-            <h3 className="text-xl font-semibold text-center mb-2 text-Gray-letrasTitulo">Project One</h3>
-            <p className="text-center mb-4 text-Gray-letrasTexto">Better Communication with Each Other</p>
-            <div className="flex justify-center space-x-2">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                GitHub
-              </button>
-              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                Live Demo
-              </button>
-            </div>
-            </div>
+
         </div>
       </div>
     </div>

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import IBMCertificateAnalysis from "/src/assets/components/CertificatesSection2/CourseraIBMDataAnalysis.png";
 import IBMCertificateExcel from "/src/assets/components/CertificatesSection2/IBMCertificateExcel.png";
 import IBMCertificateVisualization from "/src/assets/components/CertificatesSection2/IBMCertificateVisualization.png";
-import UdemyCertificatePython from "/src/assets/components/CertificatesSection2/UdemyCertificatePython.png";
+import UdemyCertificatePython from "./UdemyCertificatePython.png";
+import MITCertificateDataScienceProgram from "./MITadspCertificatePreview.jpg";
 
 const CertificatesSection2 = () => {
   // Cantidad de tarjetas
-  const TOTAL_CERTIFICATES = 4;
+  const TOTAL_CERTIFICATES = 5;
 
   // Estado para controlar cuál tarjeta está “al frente” (0,1,2,3...)
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,16 +28,20 @@ const CertificatesSection2 = () => {
       <div className=" bg-TranslucidFilter p-5 rounded-lg  cardCertificate borderBottom-gradiente" style={{ "--position": 1 ,"--phase": 0}}>
       <img src={IBMCertificateAnalysis} alt="IBM1" />
       </div>
-      <div className=" bg-TranslucidFilter p-5 rounded-lg  cardCertificate borderBottom-gradiente" style={{ "--position": 2 ,"--phase": 3}}>
-      <img src={IBMCertificateAnalysis} alt="IBM2" />
+      <div className=" bg-TranslucidFilter p-5 rounded-lg  cardCertificate borderBottom-gradiente" style={{ "--position": 2 ,"--phase": 4}}>
+      <img src={UdemyCertificatePython} alt="IBM2" />
       </div>
 
-      <div className=" bg-TranslucidFilter p-5 rounded-lg  cardCertificate borderBottom-gradiente" style={{ "--position": 3 ,"--phase": 2}}>
-      <img src={IBMCertificateAnalysis} alt="IBM3" />
+      <div className=" bg-TranslucidFilter p-5 rounded-lg  cardCertificate borderBottom-gradiente" style={{ "--position": 3 ,"--phase": 3}}>
+      <img src={IBMCertificateExcel} alt="IBM3" />
       </div>
 
-      <div className=" bg-TranslucidFilter p-5 rounded-lg  cardCertificate borderBottom-gradiente" style={{ "--position": 4 ,"--phase": 1}}>
-      <img src={UdemyCertificatePython} alt="Udemy1" />
+      <div className=" bg-TranslucidFilter p-5 rounded-lg  cardCertificate borderBottom-gradiente" style={{ "--position": 4 ,"--phase": 2}}>
+      <img src={IBMCertificateVisualization} alt="Udemy1" />
+      </div>
+
+      <div className=" bg-TranslucidFilter p-5 rounded-lg  cardCertificate borderBottom-gradiente" style={{ "--position": 5 ,"--phase": 1}}>
+      <img src={MITCertificateDataScienceProgram} alt="Udemy1" />
       </div>
 
 
